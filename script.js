@@ -7,7 +7,7 @@ console.log(secretNumber);
 
 document.querySelector('.check').addEventListener('click', function () {
   const enteredNumber = Number(document.querySelector('.guess').value);
-  console.log(enteredNumber, typeof enteredNumber);
+  //   console.log(enteredNumber, typeof enteredNumber);
   if (!enteredNumber) {
     document.querySelector('.message').textContent = 'No Number';
   } else {
@@ -18,8 +18,10 @@ document.querySelector('.check').addEventListener('click', function () {
           'Yayy, Correct Number !!';
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
-        if (score > highscore) highscore = score;
-        document.querySelector('.highscore').textContent = highscore;
+        if (score > highscore) {
+          highscore = score;
+          document.querySelector('.highscore').textContent = highscore;
+        }
       } else if (enteredNumber > secretNumber) {
         document.querySelector('.message').textContent = 'Too High';
         score--;
@@ -43,4 +45,5 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.message').textContent = 'Start guessing...';
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').textContent = '?';
+  document.querySelector('.number').style.width = '15rem';
 });
